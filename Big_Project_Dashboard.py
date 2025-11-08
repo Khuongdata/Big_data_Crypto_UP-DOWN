@@ -26,7 +26,7 @@ except KeyError:
 
 # ĐÃ CẬP NHẬT ĐƯỜNG DẪN TÍN HIỆU ĐỂ ĐỌC FILE SO SÁNH CỦA PYSPARK
 SIGNAL_PATH = "project2/signal/current_predictions_comparison/" 
-REALTIME_DATA_PATH = "project2/crypto_ohlcv_1m.csv/"    
+REALTIME_DATA_PATH = "project2/crypto_ohlcv_1m.csv"
 
 # Cấu hình S3FS cho Pandas/PyArrow
 FS_KWARTS = {
@@ -242,5 +242,6 @@ if realtime_data:
     st.dataframe(df_summary, use_container_width=True, hide_index=True)
 else:
     st.info("Không có dữ liệu giá thị trường để hiển thị.")
+
 
 
