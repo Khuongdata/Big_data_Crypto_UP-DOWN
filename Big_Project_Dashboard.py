@@ -141,11 +141,7 @@ col_info_1.metric(
     label="Cập nhật Giá Mới Nhất (MinIO Data)",
     value=realtime_time.strftime("%H:%M:%S")
 )
-# Hiển thị trạng thái cập nhật tín hiệu
-col_info_2.metric(
-    label="Cập nhật Tín hiệu ML",
-    value=last_model_update.strftime("%H:%M:%S") if last_model_update else "Chưa có tín hiệu"
-)
+
 
 # --- KHU VỰC HIỂN THỊ TÍN HIỆU ---
 st.header("Trạng thái Dự báo Tín hiệu (Last Known Signal)")
@@ -178,10 +174,6 @@ for i, coin in enumerate(crypto_list):
 
         st.metric(label="Giá Hiện tại (USD)", value=f"${price:,.2f}")
         
-        if signal_info:
-            data_time = signal_info['timestamp_data'].strftime("%H:%M:%S")
-            publish_time = signal_info['timestamp_publish'].strftime("%H:%M:%S")
-            st.caption(f"Dữ liệu: {data_time} | Dự đoán lúc: {publish_time}")
 
 
 # --- KHU VỰC BẢNG TÓM TẮT THỊ TRƯỜNG (Giá mới nhất) ---
@@ -207,4 +199,5 @@ if realtime_data:
     
     st.dataframe(df_summary, use_container_width=True, hide_index=True)
 else:
+
     st.info("Không có dữ liệu giá thị trường để hiển thị.")
