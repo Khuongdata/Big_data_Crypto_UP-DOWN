@@ -140,7 +140,7 @@ realtime_data, realtime_time = load_realtime_prices_from_minio()
 signal_data, last_model_update = load_last_known_signals()
 
 # --- TIÊU ĐỀ CHÍNH ---
-st.title("🤖 Last Known Prediction Signal - LR vs DT")
+st.title("🤖 UP or DOWN")
 st.markdown("---")
 
 # --------------------------
@@ -232,6 +232,7 @@ if realtime_data:
     st.dataframe(df_summary, use_container_width=True, hide_index=True)
 else:
     st.info("Không có dữ liệu giá thị trường để hiển thị.")
+
 
 
 
